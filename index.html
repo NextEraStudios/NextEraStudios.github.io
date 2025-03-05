@@ -363,19 +363,81 @@
 
             <script>
             const responses = {
-                "pricing": "Our pricing varies based on project scope and complexity. Contact us for a personalized quote!",
-                "services": "We offer web design & development, modern website hosting, and branding & creative services.",
-                "hosting": "Yes! Website hosting, SSL certificates, and domain registrations are included in our monthly plan.",
-                "timeline": "Most projects take around 4 weeks, but this can vary based on project scope and requirements.",
-                "contact": "You can reach us at studiosnextera@gmail.com or call +357 99528012.",
-                "location": "We're based in Nicosia, Cyprus.",
-                "portfolio": "Check out our Work section to see our latest projects and client websites!",
-                "technologies": "We specialize in modern web technologies including HTML5, CSS3, JavaScript, and various frameworks.",
-                "support": "We offer 24/7 support to all our clients.",
-                "design": "Our design process is collaborative and focused on creating unique, modern websites that reflect your brand."
+            // Pricing & Packages
+            "pricing": "Our pricing varies based on project scope and complexity. Basic packages start from €999, while custom solutions are tailored to your needs. Contact us for a personalized quote!",
+            "price": "Our price structures are flexible and project-based. We offer different package options to suit various budgets and requirements. Let's discuss your project to find the perfect solution!",
+            "prices": "We provide competitive pricing options with three main packages: Basic (€999), Professional (€1999), and Enterprise (custom pricing). Each includes different features and service levels.",
+            "cost": "Our pricing varies based on project scope and complexity. Basic packages start from €999, while custom solutions are tailored to your needs. Contact us for a personalized quote!",
+            "costs": "We offer transparent cost structures for web development projects, with packages designed to meet diverse business needs and budgets.",
+            
+            // Core Services
+            "service": "We offer a comprehensive web solution including: Web Design & Development, Modern Website Hosting, Branding & Creative Service, AI Integration, E-commerce Solution, and SEO Optimization.",
+            "services": "We offer comprehensive web solutions including: 1) Web Design & Development 2) Modern Website Hosting 3) Branding & Creative Services 4) AI Integration 5) E-commerce Solutions 6) SEO Optimization",
+            
+            "hosting": "Our hosting package includes: SSL certificates, domain registration, 24/7 monitoring, automatic backups, CDN integration, and premium security features. All managed by our expert team!",
+            "host": "Our hosting service provides essential web infrastructure with SSL certificates, domain management, and robust security features.",
+            
+            "maintenance": "We provide ongoing maintenance including security updates, performance optimization, content updates, and technical support to keep your site running smoothly.",
+            "maintain": "We offer continuous site maintenance to ensure optimal performance and security for your digital presence.",
+            
+            // Development & Design
+            "design": "Our design process is collaborative and data-driven. We create unique, modern websites that reflect your brand while ensuring optimal user experience and conversion rates.",
+            "designs": "We specialize in creating diverse design solutions that cater to different industry needs and brand identities.",
+            
+            "development": "We use cutting-edge technologies and best practices in web development. Our sites are responsive, fast-loading, and optimized for all devices and browsers.",
+            "develop": "We develop websites that meet the highest standards of performance and user experience.",
+            
+            "technology": "We specialize in modern web technology including HTML5, CSS3, JavaScript, and various framework approaches.",
+            "technologies": "We specialize in modern web technologies including HTML5, CSS3, JavaScript, React, Next.js, and various frameworks. We also integrate AI capabilities and advanced analytics.",
+            
+            // Timeline & Process
+            "timeline": "Most projects take 4-6 weeks from concept to launch. The timeline includes: Week 1: Planning & Design, Weeks 2-3: Development, Week 4: Testing & Refinement, Weeks 5-6: Launch & Optimization.",
+            "time": "Our efficient project timelines ensure quick and effective website development from concept to launch.",
+            
+            "process": "Our development process includes: 1) Discovery & Planning 2) Design & Prototyping 3) Development 4) Testing & QA 5) Launch & Training 6) Ongoing Support",
+            "processes": "We follow structured development processes to ensure consistent, high-quality web solutions for our clients.",
+            
+            // Support & Contact
+            "support": "We offer 24/7 premium support to all clients. This includes: Technical assistance, Content updates, Performance monitoring, Security management, and Regular maintenance.",
+            "supports": "Our comprehensive support systems ensure your website remains functional, secure, and up-to-date.",
+            
+            "contact": "You can reach us at: Email: studiosnextera@gmail.com, Phone: +357 99528012, or use our contact form. We typically respond within 2 business hours.",
+            "contacts": "Multiple contact options are available to ensure easy communication with our web development team.",
+            
+            "location": "We're based in Nicosia, Cyprus, but serve clients worldwide. We work remotely and can schedule meetings in your timezone.",
+            "locations": "Our global reach allows us to serve clients across multiple geographic regions with flexible remote working options.",
+            
+            // Portfolio & Experience
+            "portfolio": "Check out our Work section to see our latest projects! We've worked with various industries including e-commerce, tech startups, healthcare, and education.",
+            "portfolios": "Our diverse project portfolios showcase our capability to deliver solutions across multiple industry sectors.",
+            
+            "experience": "With over 5 years of experience, we've successfully delivered 100+ websites and web applications for clients across different industries.",
+            "experiences": "Our cumulative experiences enable us to provide nuanced and sophisticated web development solutions.",
+            
+            // Additional Services
+            "seo": "Our SEO services include keyword research, on-page optimization, technical SEO, content strategy, and regular performance reporting.",
+            "seos": "We offer comprehensive search engine optimization strategies tailored to different business needs.",
+            
+            "ecommerce": "We build custom e-commerce solutions using platforms like Shopify and WooCommerce, with features like payment gateway integration, inventory management, and analytics.",
+            "ecommerces": "Our e-commerce solutions cover a wide range of platforms and integration capabilities.",
+            
+            "branding": "Our branding services include logo design, brand guidelines, visual identity, marketing materials, and social media assets.",
+            "brands": "We develop comprehensive branding strategies that extend beyond simple logo design.",
+            
+            // Common Questions
+            "revision": "We offer revision opportunities during the development phase to ensure you're completely satisfied with the final product.",
+            "revisions": "We offer unlimited revisions during the development phase to ensure you're completely satisfied with the final product.",
+            
+            "payment": "We offer a flexible payment plan that accommodates different project scopes and client budgets.",
+            "payments": "We offer flexible payment plans: 50% upfront and 50% upon completion for standard projects, or monthly installments for larger projects.",
+            
+            "warranty": "All our websites come with a 30-day warranty period for bug fixes and minor adjustments after launch.",
+            "warranties": "We provide comprehensive post-launch support and warranties to ensure long-term client satisfaction.",
+            
+            // Default Response
+            "default": "I don't have specific information about that. Please contact us directly at studiosnextera@gmail.com or call +357 99528012 for more detailed information about your inquiry."
             };
-
-            document.querySelector('.chatbot-toggle').addEventListener('click', () => {
+                    document.querySelector('.chatbot-toggle').addEventListener('click', () => {
                 const chatbox = document.querySelector('.chatbot-box');
                 chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'flex' : 'none';
             });
