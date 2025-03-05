@@ -339,9 +339,215 @@
 
 </style>-->
     </head>
+    <!-- Add this before </body> -->
+            <link rel="stylesheet" href="chatbot.css">
+            <div class="chatbot-container">
+                <div class="chatbot-toggle">
+                    <i class="fas fa-comment"></i>
+                </div>
+                <div class="chatbot-box">
+                    <div class="chatbot-header">
+                        <h3>NextEra Assistant</h3>
+                    </div>
+                    <div class="chatbot-messages">
+                        <div class="message bot-message">
+                            Hi! I'm the NextEra Studios AI assistant. How can I help you today?
+                        </div>
+                    </div>
+                    <div class="chatbot-input">
+                        <input type="text" placeholder="Type your message...">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            const responses = {
+                "pricing": "Our pricing varies based on project scope and complexity. Contact us for a personalized quote!",
+                "services": "We offer web design & development, modern website hosting, and branding & creative services.",
+                "hosting": "Yes! Website hosting, SSL certificates, and domain registrations are included in our monthly plan.",
+                "timeline": "Most projects take around 4 weeks, but this can vary based on project scope and requirements.",
+                "contact": "You can reach us at studiosnextera@gmail.com or call +357 99528012.",
+                "location": "We're based in Nicosia, Cyprus.",
+                "portfolio": "Check out our Work section to see our latest projects and client websites!",
+                "technologies": "We specialize in modern web technologies including HTML5, CSS3, JavaScript, and various frameworks.",
+                "support": "We offer 24/7 support to all our clients.",
+                "design": "Our design process is collaborative and focused on creating unique, modern websites that reflect your brand."
+            };
+
+            document.querySelector('.chatbot-toggle').addEventListener('click', () => {
+                const chatbox = document.querySelector('.chatbot-box');
+                chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'flex' : 'none';
+            });
+
+            function sendMessage() {
+                const input = document.querySelector('.chatbot-input input');
+                const message = input.value.trim();
+                
+                if (message) {
+                    // Add user message
+                    addMessage('user', message);
+                    
+                    // Find best matching response
+                    let botResponse = "I'm sorry, I don't understand that question. Please contact us directly for more specific information.";
+                    const lowercaseMessage = message.toLowerCase();
+                    
+                    for (let keyword in responses) {
+                        if (lowercaseMessage.includes(keyword)) {
+                            botResponse = responses[keyword];
+                            break;
+                        }
+                    }
+                    
+                    // Add bot response with delay
+                    setTimeout(() => addMessage('bot', botResponse), 500);
+                    
+                    // Clear input
+                    input.value = '';
+                }
+            }
+
+            function addMessage(sender, text) {
+                const messagesDiv = document.querySelector('.chatbot-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = text;
+                messagesDiv.appendChild(messageDiv);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+
+            // Allow sending with Enter key
+            document.querySelector('.chatbot-input input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            </script>
+
+
     <body>
         <div class="w-embed">
             <style>
+                .chatbot-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    width: 60px;
+                    height: 60px;
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                }
+
+                .chatbot-container.expanded {
+                    width: 350px;
+                    height: 500px;
+                }
+
+                .chatbot-toggle {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 30px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                }
+
+                .chatbot-toggle i {
+                    color: white;
+                    font-size: 24px;
+                }
+
+                .chatbot-box {
+                    position: absolute;
+                    bottom: 70px;
+                    right: 0;
+                    width: 350px;
+                    height: 420px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    display: none;
+                    flex-direction: column;
+                }
+
+                .chatbot-header {
+                    padding: 15px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .chatbot-header h3 {
+                    margin: 0;
+                    color: white;
+                    font-size: 16px;
+                }
+
+                .chatbot-messages {
+                    flex: 1;
+                    padding: 15px;
+                    overflow-y: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .message {
+                    max-width: 80%;
+                    padding: 10px;
+                    border-radius: 10px;
+                    color: white;
+                }
+
+                .bot-message {
+                    background: rgba(255, 255, 255, 0.1);
+                    align-self: flex-start;
+                }
+
+                .user-message {
+                    background: rgba(255, 255, 255, 0.2);
+                    align-self: flex-end;
+                }
+
+                .chatbot-input {
+                    padding: 15px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    display: flex;
+                    gap: 10px;
+                }
+
+                .chatbot-input input {
+                    flex: 1;
+                    padding: 8px;
+                    border-radius: 5px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: white;
+                }
+
+                .chatbot-input button {
+                    padding: 8px 15px;
+                    border-radius: 5px;
+                    border: none;
+                    background: rgba(255, 255, 255, 0.1);
+                    color: white;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .chatbot-input button:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+
+
+
                 .hh-underline:before {
                     display: block;
                     content: "";
