@@ -1,0 +1,361 @@
+@charset "UTF-8";
+.pricing {
+		display: flex;
+		overflow: hidden;
+		--top: 50%;
+		--left: 50%;
+}
+.pricing > input {
+		position: fixed;
+		transform: scale(0);
+		opacity: 0;
+}
+.pricing .screen {
+		flex: 0 0 auto;
+		width: 100%;
+		position: relative;
+		backface-visibility: hidden;
+}
+.pricing .screen1 {
+		background: radial-gradient(123% 83.51% at 85.59% 12.93%, #FFDDDD 0%, #D7C4FF 52.6%, #D7F0FF 100%);
+		color: var(--black);
+}
+.pricing .screen2 {
+		background: linear-gradient(180deg, #AB88F4 0%, #FF30AB 74.23%);
+		transform: translate3d(-100%, 0, 0);
+		transition-property: clip-path;
+		transition-duration: 0.7s;
+		transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		clip-path: circle(100% at var(--left) var(--top));
+		z-index: 3;
+		overflow: hidden;
+}
+.pricing input:not(:checked) ~ .screen2 {
+		pointer-events: none;
+		clip-path: circle(0% at var(--left) var(--top));
+}
+html.safari .pricing .screen1 {
+		background: #FF91DB;
+}
+html.safari .pricing .screen2 {
+		background: #000;
+}
+html.safari .pricing .cells {
+		z-index: 1;
+}
+html.safari .pricing .screen1 .image > *:before, html.safari .pricing .screen1 .image > *:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		backface-visibility: hidden;
+}
+html.safari .pricing .screen1 .image > *:before {
+		background: linear-gradient(to bottom, #FF91DB 0%, #FF91DB00 20%, #FF91DB00 90%, #FF91DB 100%);
+}
+html.safari .pricing .screen1 .image > *:after {
+		background: linear-gradient(to right, #FF91DB 0%, #FF91DB00 20%, #FF91DB00 80%, #FF91DB 100%);
+}
+html.safari .pricing .text > * {
+		z-index: 2;
+}
+.pricing .text {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		position: relative;
+}
+.pricing .image {
+		pointer-events: none;
+		position: relative;
+		aspect-ratio: 1/1;
+		backface-visibility: hidden;
+		transition-property: transform, opacity;
+		transition-duration: 0.8s, 0.4s;
+		transition-timing-function: ease;
+}
+.pricing .image > * {
+		aspect-ratio: 1/1;
+		position: relative;
+}
+.pricing .image img, .pricing .image video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+}
+.pricing .twice {
+		font-size: clamp(18px, 1.5rem, 24px);
+		gap: clamp(7px, 0.625rem, 10px);
+		font-weight: bold;
+		padding: clamp(15px, 1.25rem, 20px);
+		margin-bottom: clamp(30px, 3.75rem, 60px);
+		height: auto;
+}
+html:not(.safari) .pricing .screen1 .twice {
+		z-index: 20;
+		position: relative;
+}
+html:not(.safari) .pricing .screen2 .twice {
+		opacity: 0;
+		pointer-events: none;
+}
+html.safari .pricing .screen2 .twice:after {
+		opacity: 0.2;
+}
+.pricing .twice svg {
+		height: clamp(22px, 1.875rem, 30px);
+		width: auto;
+}
+.pricing .twice .trigger {
+		flex: 0 0 auto;
+		position: relative;
+		border-radius: 100px;
+		background: #F3D5E8;
+		font-size: clamp(12px, 1rem, 16px);
+		width: 4.0625em;
+		height: 2.5em;
+		margin-left: clamp(9px, 0.875rem, 14px);
+		transition-property: background;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+}
+.pricing .twice .trigger:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1.875em;
+		height: 1.875em;
+		border-radius: 50%;
+		margin: 0.3125em;
+		background: var(--black);
+		transition-property: transform, background;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+		transform: translate3d(0, 0, 0);
+}
+.pricing input:checked ~ .screen .twice .trigger {
+		background-color: var(--black);
+}
+.pricing input:checked ~ .screen .twice .trigger:before {
+		transform: translate3d(1.5625em, 0, 0);
+		background-color: var(--yellow);
+}
+@media (pointer:fine) {
+		.pricing input:checked ~ .screen .twice:hover .trigger {
+				background-color: var(--yellow);
+		}
+		.pricing input:checked ~ .screen .twice:hover .trigger:before {
+				background-color: var(--black);
+		}
+}
+.pricing .title, .pricing .price {
+		font-weight: bold;
+		line-height: 1.05;
+		font-size: clamp(30px, 6.25rem, 100px);
+		margin: 0;
+}
+.pricing .price strong {
+		font-weight: inherit;
+		font-size: clamp(64px, 8.75rem, 140px);
+}
+.pricing .week {
+		position: absolute;
+		color: var(--black);
+		aspect-ratio: 308/316;
+		background: url("../img/week.webp") no-repeat 50% 50%;
+		background-size: contain;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 9.625em;
+		font-weight: bold;
+		line-height: 1.4;
+		font-size: clamp(16px, 2rem, 32px);
+}
+.pricing .week strong {
+		font-weight: 800;
+		line-height: 1.19;
+		font-size: 1.84375em;
+}
+.pricing .btn:not(.twice) {
+		height: clamp(60px, 6.875rem, 110px);
+		font-size: clamp(18px, 1.875rem, 30px);
+		font-weight: bold;
+		min-width: 14.666666em;
+		margin-top: clamp(30px, 3.75rem, 60px);
+}
+.pricing ul, .pricing li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.pricing ul {
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		font-weight: 500;
+		line-height: 1.5;
+		font-size: clamp(16px, 1.875rem, 30px);
+		gap: clamp(14px, 1.5rem, 24px);
+		margin-top: clamp(20px, 2.5rem, 40px);
+		container-type: inline-size;
+		container-name: pricing-ul;
+		width: 100%;
+}
+@media only screen and (min-width: 600px) {
+		@container pricing-ul (max-width: 30em) {
+				.pricing ul li {
+						width: 100%;
+				}
+		}
+}
+.pricing li {
+		flex: 0 0 auto;
+		max-width: 100%;
+		position: relative;
+		padding-left: calc(clamp(20px, 2.3125rem, 37px) + clamp(10px, 0.75rem, 12px));
+}
+.pricing li:before {
+		content: '';
+		position: absolute;
+		top: 0.75em;
+		left: 0;
+		width: clamp(20px, 2.3125rem, 37px);
+		height: clamp(20px, 2.3125rem, 37px);
+		border-radius: 50%;
+		background: var(--white) url("../img/check-circle-white.svg") no-repeat 50% 50%;
+		background-size: contain;
+		transform: translate3d(0, -50%, 0);
+}
+.pricing .screen1 li:before {
+		background-color: var(--black);
+		background-image: url("../img/check-circle-black.svg");
+}
+.pricing .scroll-down {
+		pointer-events: none;
+		position: absolute;
+		bottom: clamp(30px, 3.75rem, 60px);
+		left: 0;
+		right: 0;
+		text-align: center;
+		font-weight: 500;
+		font-size: clamp(12px, 1rem, 16px);
+		line-height: 1;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+}
+.pricing .scroll-down svg {
+		flex: 0 0 auto;
+		height: 0.875em;
+		width: auto;
+		fill: currentColor;
+}
+.pricing .cells {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+}
+@media only screen and (max-width: 999.99px) {
+		.pricing .screen {
+				padding: 0 var(--side-padding) calc(var(--side-padding) + 40px) var(--side-padding);
+				display: flex;
+				flex-direction: column;
+				min-height: calc(100vh + 40px);
+				min-height: calc(100svh + 40px);
+		}
+		.pricing .image {
+				aspect-ratio: 2/1;
+				flex: 1 0 auto;
+				width: 100%;
+				max-width: 400px;
+				margin: 0 auto;
+				position: relative;
+		}
+		.pricing .image > * {
+				width: 200%;
+				position: absolute;
+				bottom: 0;
+				left: -25%;
+				transform: rotate(180deg);
+		}
+		.pricing .screen2 .image > * {
+				width: 250%;
+				left: -40%;
+				bottom: -20%;
+				transform: rotate(195deg);
+		}
+		@media only screen and (max-width: 599.99px) {
+				.pricing .btn:not(.twice) {
+						width: 100%;
+						min-width: 0;
+				}
+		}
+		.pricing .scroll-down {
+				display: none;
+		}
+		.pricing .week {
+				top: var(--header);
+				right: var(--side-padding);
+		}
+}
+@media only screen and (min-width: 1000px) {
+		.pricing .screen {
+				min-height: 100vh;
+				min-height: 100svh;
+				padding: var(--header) var(--side-padding);
+		}
+		.pricing .screen .text {
+				margin-left: 43.75%;
+				height: 100%;
+				justify-content: center;
+		}
+		.pricing .image {
+				position: absolute;
+				top: 50%;
+				left: calc((100% - var(--side-padding) * 2) * 0.21875 + var(--side-padding));
+				width: 61.5%;
+				transform: translate3d(-50%, -50%, 0);
+				max-width: 1190px;
+		}
+		html:not(.ready) .pricing .image {
+				transform: translate3d(-50%, calc(-50% + var(--distance)), 0);
+				opacity: 0;
+		}
+		.pricing .image > * {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate3d(-50%, -50%, 0);
+				width: 100%;
+		}
+		.pricing .screen1 .image {
+				transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+		}
+		html:not(.ready) .pricing .screen1 .image {
+				transform: translate3d(-50%, calc(-50% + var(--distance)), 0) rotate(-15deg);
+		}
+		.pricing .screen1 .image > * {
+				width: 86.84%;
+		}
+		.pricing .week {
+				transform: translate3d(-50%, -50%, 0);
+				top: 35%;
+				left: calc((100% - var(--side-padding) * 2) * 0.17 + var(--side-padding));
+		}
+		.pricing .cells {
+				top: 50%;
+				left: 50%;
+				transform: translate3d(-50%, -50%, 0);
+		}
+}

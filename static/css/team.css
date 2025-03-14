@@ -1,0 +1,189 @@
+@charset "UTF-8";
+.team {
+		overflow: hidden;
+}
+.team .title {
+		font-weight: 500;
+		text-transform: uppercase;
+		font-size: clamp(51px, 11.25rem, 180px);
+		line-height: 1;
+		margin: 0 0 clamp(20px, 3.75rem, 60px) 0;
+}
+.team .top-text {
+		float: right;
+		width: 100%;
+		max-width: 26.111em;
+		font-weight: normal;
+		line-height: 1.4;
+		font-size: clamp(20px, 2.25rem, 36px);
+		margin-bottom: clamp(50px, 12.5rem, 200px);
+}
+@media only screen and (min-width: 1000px) {
+		.team .top-text {
+				line-height: 1.5;
+		}
+}
+.slider-team {
+		margin: 0 calc(var(--gap) / -2) !important;
+		margin-top: 200px !important;
+		overflow: visible !important;
+		width: auto !important;
+		--gap: clamp(10px, 3rem, 48px);
+		clear: both;
+}
+.slider-team .swiper-slide {
+		padding: 0 calc(var(--gap) / 2);
+		width: 33.333333%;
+		min-width: 260px;
+		height: auto !important;
+		display: flex !important;
+		flex-direction: column;
+}
+.slider-team .swiper-slide:first-child {
+		margin-left: auto;
+}
+.slider-team .swiper-slide:last-child {
+		margin-right: auto;
+}
+.team-el {
+		position: relative;
+		flex: 1 0 auto;
+		width: 100%;
+		aspect-ratio: 350/650;
+		text-align: center;
+		font-weight: 500;
+		font-size: clamp(18px, 1.6875rem, 27px);
+		line-height: 1.19;
+		border-radius: clamp(15px, 1.5rem, 24px);
+		backface-visibility: hidden;
+		transform: translateZ(0);
+		overflow: hidden;
+		transition-property: transform, opacity;
+		transition-duration: 0.8s, 0.4s;
+		transition-timing-function: ease;
+		transform: translate3d(0, 0, 0);
+}
+.js_detect-scroll:not(.visible) .team-el {
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(0, var(--distance), 0);
+}
+.js_detect-scroll .swiper-slide:nth-child(1) .team-el {
+		transition-delay: calc(0 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(2) .team-el {
+		transition-delay: calc(1 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(3) .team-el {
+		transition-delay: calc(2 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(4) .team-el {
+		transition-delay: calc(3 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(5) .team-el {
+		transition-delay: calc(4 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(6) .team-el {
+		transition-delay: calc(5 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(7) .team-el {
+		transition-delay: calc(6 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(8) .team-el {
+		transition-delay: calc(7 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(9) .team-el {
+		transition-delay: calc(8 * var(--delay));
+}
+.js_detect-scroll .swiper-slide:nth-child(10) .team-el {
+		transition-delay: calc(9 * var(--delay));
+}
+.team-el video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		backface-visibility: hidden;
+		border-radius: inherit;
+}
+@media (pointer:fine) {
+		.team-el video {
+				transition: filter 0.4s ease;
+				filter: grayscale(100%);
+		}
+		.team-el:before, .team-el:after {
+				content: '';
+				z-index: 2;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				border-radius: inherit;
+				margin: -1px;
+				transition: opacity 0.4s ease;
+		}
+		.team-el:before {
+				background: rgba(0, 0, 0, 0.4);
+				mix-blend-mode: overlay;
+		}
+		.team-el:after {
+				background: rgba(0, 0, 0, 0.8);
+		}
+		.team-el:hover video {
+				filter: grayscale(0%);
+		}
+		.team-el:hover:before, .team-el:hover:after {
+				opacity: 0;
+		}
+}
+.team-el .text {
+		z-index: 3;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: clamp(20px, 3rem, 48px) 20px;
+		backface-visibility: hidden;
+		transform: translateZ(0);
+}
+.team-el .name {
+		font-weight: bold;
+		font-size: clamp(27px, 3.5rem, 56px);
+		margin: 0 0 clamp(5px, 0.5rem, 8px);
+}
+.team-el .soc, .team-el .soc li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.team-el .soc {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: clamp(8px, 0.8125rem, 13px);
+		margin: clamp(15px, 2rem, 32px) 0 0 0;
+}
+.team-el .soc li:before {
+		display: none;
+}
+.team-el .soc a {
+		display: block;
+		width: clamp(50px, 5rem, 80px);
+		height: clamp(50px, 5rem, 80px);
+		backface-visibility: hidden;
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border-radius: clamp(12.5px, 1.25rem, 20px);
+}
+.team-el .soc a img {
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: contain;
+		object-position: center;
+}

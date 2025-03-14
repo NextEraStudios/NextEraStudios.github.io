@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.expertieses {
+		overflow: hidden;
+}
+.expertieses .wrap {
+		display: flex;
+		margin-top: clamp(80px, 6.25rem, 100px);
+		backface-visibility: hidden;
+		transition-property: transform, opacity;
+		transition-duration: 0.8s, 0.4s;
+		transition-timing-function: ease;
+		transform: translate3d(-50%, 0, 0);
+		transition-delay: var(--delay);
+		width: 100vw;
+		position: relative;
+		left: 50%;
+}
+.mini-title.js_detect-scroll:not(.visible) ~ .wrap {
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(-50%, var(--distance), 0);
+}
+.expertieses .list, .expertieses .list li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.expertieses .list {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+}
+.expertieses .list.ready {
+		animation: marquee 40s linear infinite;
+}
+@media (pointer:fine) {
+		.expertieses .list.ready:hover {
+				animation-play-state: paused;
+		}
+}
+.expertieses .list li {
+		flex: 0 0 auto;
+		text-align: right;
+		pointer-events: none;
+}
+.expertieses .list .title > *, .expertieses .list .text {
+		pointer-events: all;
+		backface-visibility: hidden;
+		transition: opacity 0.4s ease;
+}
+@media (pointer:fine) {
+		.expertieses .list:has(li:hover) .title > *, .expertieses .list:has(li:hover) .text {
+				opacity: 0.2;
+		}
+		.expertieses .list li:hover .title > *, .expertieses .list li:hover .text {
+				opacity: 1;
+		}
+}
+.expertieses .list .title {
+		font-weight: 500;
+		line-height: 1.1;
+		font-size: clamp(82px, 12.5rem, 200px);
+		margin: -0.19em 0;
+		padding-left: clamp(100px, 15.25rem, 244px);
+		position: relative;
+}
+.expertieses .list .title:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: calc(clamp(100px, 15.25rem, 244px) / 2);
+		transform: translate3d(-50%, -50%, 0);
+		width: 0.72em;
+		height: 0.72em;
+		background: url("../img/star.svg") no-repeat 50% 50%;
+		background-size: contain;
+}
+.expertieses .list a {
+		text-decoration: none;
+		color: inherit;
+}
+.expertieses .list .text {
+		float: right;
+		line-height: 1.5;
+		font-weight: 500;
+		font-size: clamp(18px, 2.25rem, 36px);
+		width: 15.444em;
+		padding-top: clamp(32px, 5.625rem, 90px);
+}
+.expertieses .link-all {
+		margin-top: clamp(80px, 9.375rem, 150px);
+}

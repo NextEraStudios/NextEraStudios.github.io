@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.text-block:not(:last-child) {
+		padding-bottom: clamp(20px, 6.25rem, 100px);
+}
+.text-block:last-child {
+		padding-bottom: clamp(100px, 15.625rem, 250px);
+}
+.text-block:after {
+		content: ' ';
+		clear: both;
+		display: block;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		font-size: 0;
+}
+.text-block .big {
+		font-weight: 500;
+		line-height: 1.1;
+		margin: 0 0 clamp(30px, 3.75rem, 60px) 0;
+}
+.approach .big {
+		font-size: clamp(40px, 7.5rem, 120px);
+		max-width: 12.62em;
+}
+.emphasis .big {
+		font-size: clamp(40px, 6.25rem, 100px);
+		max-width: 16.4em;
+}
+.text-block .text {
+		float: right;
+		width: 100%;
+		max-width: 26.111em;
+		font-weight: normal;
+		line-height: 1.5;
+		font-size: clamp(21px, 2.25rem, 36px);
+}
+.text-block .text p {
+		margin: 1.5em 0;
+}
+.text-block .text > *:first-child {
+		margin-top: 0 !important;
+}
+.text-block .text > *:last-child {
+		margin-bottom: 0 !important;
+}

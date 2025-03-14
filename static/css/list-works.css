@@ -1,0 +1,141 @@
+@charset "UTF-8";
+.list-works, .list-works .el {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.list-works {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: clamp(50px, 7.5rem, 120px) 0;
+		font-weight: 500;
+		line-height: 1.2;
+		color: var(--grey);
+		font-size: clamp(18px, 1.5rem, 24px);
+		font-style: italic;
+}
+.list-works:last-child {
+		margin-bottom: clamp(20px, 3.125rem, 50px);
+}
+.list-works .js_hover {
+		--lh: 1.2;
+}
+.list-works a, .list-works strong {
+		font-weight: inherit;
+		color: var(--white);
+		text-decoration: none;
+		font-style: normal;
+}
+.list-works .el {
+		flex: 0 0 auto;
+		width: 100%;
+}
+.list-works.js_detect-scroll .el {
+		backface-visibility: hidden;
+		transition-property: transform, opacity;
+		transition-duration: 0.8s, 0.4s;
+		transition-timing-function: ease;
+		transform: translate3d(0, 0, 0);
+		transition-delay: calc(var(--delay) * 8);
+}
+.list-works.js_detect-scroll .el:nth-child(1) {
+		transition-delay: calc(var(--delay) * 0 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(2) {
+		transition-delay: calc(var(--delay) * 1 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(3) {
+		transition-delay: calc(var(--delay) * 2 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(4) {
+		transition-delay: calc(var(--delay) * 3 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(5) {
+		transition-delay: calc(var(--delay) * 4 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(6) {
+		transition-delay: calc(var(--delay) * 5 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(7) {
+		transition-delay: calc(var(--delay) * 6 + var(--delay2));
+}
+.list-works.js_detect-scroll .el:nth-child(8) {
+		transition-delay: calc(var(--delay) * 7 + var(--delay2));
+}
+.list-works.js_detect-scroll:not(.visible) .el {
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(0, var(--distance), 0);
+}
+.list-works .el.js_detect-scroll > * {
+		backface-visibility: hidden;
+		transition-property: transform, opacity;
+		transition-duration: 0.8s, 0.4s;
+		transition-timing-function: ease;
+		transform: translate3d(0, 0, 0);
+}
+.list-works .el.js_detect-scroll:not(.visible) > * {
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(0, var(--distance), 0);
+}
+.list-works .image {
+		display: block;
+		text-decoration: none;
+		position: relative;
+		aspect-ratio: 640/480;
+		border-radius: clamp(10px, 0.9375rem, 15px);
+		margin-bottom: clamp(20px, 1.875rem, 30px);
+}
+.list-works .image:after {
+		content: '';
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		border-radius: inherit;
+		border: 1px solid var(--white);
+		opacity: 0.1;
+}
+.list-works img, .list-works video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: inherit;
+		object-fit: cover;
+		object-position: center;
+}
+@media only screen and (max-width: 699.99px) {
+		.list-works .el.js_detect-scroll:nth-child(1) > * {
+				transition-delay: var(--delay2);
+		}
+}
+@media only screen and (min-width: 700px) {
+		.list-works .el.js_detect-scroll:nth-child(even) > * {
+				transition-delay: var(--delay);
+		}
+		.list-works .el.js_detect-scroll:nth-child(1) > * {
+				transition-delay: var(--delay2);
+		}
+		.list-works .el.js_detect-scroll:nth-child(2) > * {
+				transition-delay: calc(var(--delay) + var(--delay2));
+		}
+}
+@media only screen and (min-width: 700px) and (max-width: 999.99px) {
+		.list-works .el {
+				width: calc((100% - clamp(20px, 2.5rem, 40px)) / 2);
+		}
+}
+@media only screen and (min-width: 1000px) {
+		.list-works .el:nth-child(4n - 3), .list-works .el:nth-child(4n) {
+				width: calc((100% - clamp(20px, 2.5rem, 40px)) * 0.3636);
+		}
+		.list-works .el:nth-child(4n - 2), .list-works .el:nth-child(4n - 1) {
+				width: calc((100% - clamp(20px, 2.5rem, 40px)) * 0.6363);
+		}
+}

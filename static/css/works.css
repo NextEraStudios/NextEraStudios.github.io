@@ -1,0 +1,195 @@
+@charset "UTF-8";
+.works {
+		--gap: clamp(50px, 5rem, 80px);
+		padding-top: calc(var(--header) + 60px);
+		--speed: 1;
+}
+.works .title {
+		font-weight: 500;
+		line-height: 1.12;
+		font-size: clamp(64px, 7.5rem, 120px);
+		margin: 0 0 clamp(20px, 2.5rem, 40px) 0;
+}
+.works ul, .works li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}
+.works .list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap);
+}
+.works .image {
+		position: relative;
+		backface-visibility: hidden;
+}
+.works .image img, .works .image video {
+		width: 100%;
+		height: auto;
+		border-radius: clamp(10px, 0.9375rem, 15px);
+		vertical-align: top;
+}
+.works .text, .works .nav {
+		font-weight: 500;
+		font-size: clamp(18px, 2.75rem, 44px);
+}
+.works .text {
+		line-height: 1.2;
+		color: var(--grey);
+		margin-top: clamp(20px, 2.5rem, 40px);
+}
+.works .text .js_hover {
+		--lh: 1.2;
+}
+.works .text strong, .works .text a {
+		font-weight: bold;
+		color: var(--white);
+}
+.works .text a {
+		text-decoration: none;
+}
+@media only screen and (max-width: 699.99px) {
+		.works .nav, .works .info {
+				display: none;
+		}
+}
+@media only screen and (min-width: 700px) {
+		.mainwrap:has(.works) {
+				overflow: visible;
+		}
+		.works {
+				padding-top: 0;
+				padding-left: 0;
+				padding-right: 0;
+		}
+		.works .top {
+				position: sticky;
+				pointer-events: none;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				height: 100svh;
+				z-index: 10;
+				overflow: hidden;
+		}
+		.works .top:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 100vw;
+				height: 1px;
+				background: var(--white);
+				opacity: 0.3;
+				transform: translate3d(-50%, -50%, 0);
+		}
+		.works .title, .works .info {
+				font-weight: 800;
+				font-size: 18px;
+				line-height: 1.1;
+				color: var(--white);
+				text-transform: uppercase;
+				margin: 0;
+				position: absolute;
+				bottom: clamp(20px, 2.5rem, 40px);
+				margin: 0 var(--side-padding);
+		}
+		.works .info {
+				left: 0;
+		}
+		.works .title {
+				opacity: 0.5;
+				right: 0;
+		}
+		.works .nav {
+				position: absolute;
+				margin: 10px var(--side-padding);
+				color: var(--white);
+				line-height: 1.2;
+				overflow: hidden;
+				height: 1.2em;
+				--active: 0;
+				display: flex;
+				flex-direction: column;
+		}
+		.works:not(.ready) .nav {
+				opacity: 0;
+		}
+		.works .thumbs {
+				bottom: 50%;
+				left: 0;
+		}
+		.works .number {
+				top: 50%;
+				right: 0;
+				align-items: flex-end;
+		}
+		.works .nav li {
+				backface-visibility: hidden;
+				transition: transform 0.4s ease;
+				transform: translate3d(0, calc((var(--active) + 1) * -1.2em + 1.2em), 0);
+		}
+		.works .number {
+				counter-reset: nu;
+				padding-left: 3ch;
+		}
+		.works .number:before, .works .number:after {
+				content: '0';
+				position: absolute;
+				top: 0;
+				right: 1ch;
+				transition: transform 0.4s ease;
+				transform: translate3d(0, 0, 0);
+		}
+		.works .number.tens:after {
+				transform: translate3d(0, -1.2em, 0);
+		}
+		.works .number:before {
+				right: 2ch;
+		}
+		.works .number li {
+				counter-increment: nu;
+				min-width: 1ch;
+		}
+		.works .number li:nth-child(n+10) {
+				min-width: 2ch;
+		}
+		.works .number li:before {
+				content: counter(nu);
+		}
+		.works .list {
+				margin-top: -100vh;
+				margin-top: -100svh;
+				padding: 0 var(--side-padding);
+				text-align: center;
+				padding-top: 25vh;
+				text-align: center;
+				padding-top: 25svh;
+		}
+		.works .list .image {
+				width: 52.222%;
+				margin: 0 auto;
+				transition: transform 1s cubic-bezier(0.2, 3, 0.4, 1);
+				transform: scale(calc(1 - 0.05 * var(--speed)));
+		}
+		.works .list .image img, .works .list .image video {
+				width: 100%;
+				height: auto;
+				max-height: calc(100vh - var(--header) * 2 - var(--gap) * 2);
+				max-height: calc(100svh - var(--header) * 2 - var(--gap) * 2);
+				object-fit: cover;
+				object-position: center;
+		}
+		.works .list .text {
+				display: none;
+		}
+}
+/*added 10.09.24*/
+.works .nav li * {
+		font: inherit !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		color: inherit !important;
+		pointer-events: none !important;
+}

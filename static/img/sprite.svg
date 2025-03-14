@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
+    <defs>
+        <symbol id="arrow-right" viewBox="0 0 28 28">
+            <path d="M14 28L12.25 26.25L23.25 15.25H0V12.75H23.25L12.25 1.75L14 0L28 14L14 28Z" 
+                  fill="currentColor"/>
+        </symbol>
+        <!-- Test symbol -->
+        <symbol id="test-circle" viewBox="0 0 28 28">
+            <circle cx="14" cy="14" r="13" fill="currentColor"/>
+        </symbol>
+    </defs>
+</svg>
